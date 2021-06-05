@@ -1,8 +1,7 @@
-const mongoose = require("mongoose");
 const URLModel = require("../models/urlModel");
 const uuid = require("uuid").v4;
 
-const domain = "http://localhost:3000";
+const domain = "stly.us";
 
 const controller = {
   save: async (req, res) => {

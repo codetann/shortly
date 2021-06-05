@@ -1,7 +1,8 @@
 <script>
   import axios from "axios";
-  import { env } from "process";
   import { fly } from "svelte/transition";
+  import { config } from "dotenv";
+  config();
   /* State */
   let url = "";
   let shortUrl = "";
