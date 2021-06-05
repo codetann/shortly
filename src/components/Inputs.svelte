@@ -7,10 +7,14 @@
   let submitted = false;
   let copied = false;
 
+  const PRODUCTION = true;
+  const postUrl = PRODUCTION
+    ? "http://localhost:3000"
+    : "https://stly.us/api/create";
+
   const handleClick = () => {
     // makes sure there are no empty inputs
     if (url === "") return;
-    submitted = !submitted;
 
     // checks to see if the url includes http:// or https://
     const check = url.split("").splice(0, 8).join("");
@@ -19,7 +23,7 @@
       // server sends back a the short url in the response
       axios.post("https://stly.us/api/create", { url: url }).then((res) => {
         shortUrl = res.data.url;
-        submitted = !submitted;
+        submitted = true;
       });
     } else {
       alert("Please include http:// or https:// in your url.");
