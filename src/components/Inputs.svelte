@@ -1,8 +1,6 @@
 <script>
   import axios from "axios";
   import { fly } from "svelte/transition";
-  import { config } from "dotenv";
-  config();
   /* State */
   let url = "";
   let shortUrl = "";
@@ -19,7 +17,7 @@
     if (check === "http://" || check === "https://") {
       // sends post request to server with long url
       // server sends back a the short url in the response
-      axios.post(process.env.POST_CREATE, { url: url }).then((res) => {
+      axios.post("https://stly.us/api/create", { url: url }).then((res) => {
         shortUrl = res.data.url;
         submitted = !submitted;
       });
