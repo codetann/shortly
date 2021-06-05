@@ -3,6 +3,7 @@ const path = require("path");
 const indexRoute = require("./server/routes/indexRouter");
 const apiRoute = require("./server/routes/apiRouter");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
@@ -20,6 +21,7 @@ mongoose.connect(
 
 /* Middleware */
 app.use(express.json());
+app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 /* Routes */
